@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Knewave&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            knewave: ['Knewave', 'cursive'],
+            poppins: ['Poppins', 'sans-serif'],
+          },
+          colors: {
+            'adobo': '#8B4513',
+            'sinigang': '#FF6347',
+            'lechon': '#D2691E',
+          }
+        },
+      },
+    }
+  </script>
+  <title>Plato Spot Kiosk</title>
+</head>
+<body class="bg-gray-50 font-poppins min-h-screen relative">
+
+  <!-- Header -->
+  <header class="bg-adobo text-white p-4 text-center text-2xl font-knewave">Plato Spot</header>
+
+  <!-- Category Filters -->
+  <div class="flex overflow-x-auto space-x-4 p-4 bg-white shadow z-10 sticky top-0">
+    <button class="category-btn px-4 py-2 text-adobo font-bold border-b-2 border-adobo" data-category="all">All</button>
+    <button class="category-btn px-4 py-2 text-adobo font-bold" data-category="main">Main</button>
+    <button class="category-btn px-4 py-2 text-adobo font-bold" data-category="soup">Soup</button>
+    <button class="category-btn px-4 py-2 text-adobo font-bold" data-category="dessert">Dessert</button>
+    <button class="category-btn px-4 py-2 text-adobo font-bold" data-category="snack">Snack</button>
+  </div>
+
+  <!-- Menu Section -->
+  <main id="menu-section" class="p-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <!-- Menu items here (same structure as before) -->
+    <!-- Example Item -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="main">
+      <figure><img src="images/menu/chickenadobo.jpeg" alt="Chicken Adobo" class="w-full h-48 object-cover"></figure>
+      <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Chicken Adobo</h3>
+        <p class="text-sm text-gray-600">Tender chicken braised in soy sauce, vinegar, and garlic.</p>
+        <div class="flex justify-between items-center mt-4">
+          <span class="text-adobo font-bold text-lg">₱120</span>
+          <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Chicken Adobo" data-price="₱120">Add</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2 -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="soup">
+        <figure><img src="images/menu/porksinigang.jpeg" alt="Pork Sinigang" class="w-full h-48 object-cover"></figure>
+        <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Pork Sinigang</h3>
+        <p class="text-sm text-gray-600">Sour tamarind soup with pork and vegetables.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-adobo font-bold text-lg">₱150</span>
+            <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Pork Sinigang" data-price="₱150">Add</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 3 -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="main">
+        <figure><img src="images/menu/lechonkawali.png" alt="Lechon Kawali" class="w-full h-48 object-cover"></figure>
+        <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Lechon Kawali</h3>
+        <p class="text-sm text-gray-600">Crispy fried pork belly with lechon sauce.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-adobo font-bold text-lg">₱180</span>
+            <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Lechon Kawali" data-price="₱180">Add</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 4 -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="main">
+        <figure><img src="images/menu/karekare.png" alt="Kare-Kare" class="w-full h-48 object-cover"></figure>
+        <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Kare-Kare</h3>
+        <p class="text-sm text-gray-600">Oxtail and vegetable stew in peanut sauce.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-adobo font-bold text-lg">₱160</span>
+            <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Kare-Kare" data-price="₱160">Add</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 5 -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="soup">
+        <figure><img src="images/menu/bulalo.png" alt="Bulalo" class="w-full h-48 object-cover"></figure>
+        <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Bulalo</h3>
+        <p class="text-sm text-gray-600">Beef shank soup with bone marrow.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-adobo font-bold text-lg">₱200</span>
+            <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Bulalo" data-price="₱200">Add</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 6 -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="dessert">
+        <figure><img src="images/menu/halohalo.jpg" alt="Halo-Halo" class="w-full h-48 object-cover"></figure>
+        <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Halo-Halo</h3>
+        <p class="text-sm text-gray-600">Mixed sweet ingredients with shaved ice and milk.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-adobo font-bold text-lg">₱90</span>
+            <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Halo-Halo" data-price="₱90">Add</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 7 -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="snack">
+        <figure><img src="images/menu/lumpia.jpg" alt="Lumpia" class="w-full h-48 object-cover"></figure>
+        <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Lumpia</h3>
+        <p class="text-sm text-gray-600">Crispy Filipino spring rolls with sweet chili sauce.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-adobo font-bold text-lg">₱80</span>
+            <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Lumpia" data-price="₱80">Add</button>
+        </div>
+        </div>
+    </div>
+
+    <!-- Item 8 -->
+    <div class="card bg-base-100 shadow-lg menu-item" data-category="dessert">
+        <figure><img src="images/menu/lecheflan.png" alt="Leche Flan" class="w-full h-48 object-cover"></figure>
+        <div class="card-body">
+        <h3 class="card-title text-xl font-bold">Leche Flan</h3>
+        <p class="text-sm text-gray-600">Filipino caramel custard dessert.</p>
+        <div class="flex justify-between items-center mt-4">
+            <span class="text-adobo font-bold text-lg">₱90</span>
+            <button class="btn bg-adobo hover:bg-lechon text-white px-4 add-to-cart" data-name="Leche Flan" data-price="₱90">Add</button>
+        </div>
+        </div>
+    </div>
+
+  </main>
+
+  <!-- Floating Cart Button -->
+  <button id="cart-toggle" class="fixed bottom-20 right-4 z-50 bg-adobo text-white p-4 rounded-full shadow-lg hover:bg-lechon">
+    🛒
+  </button>
+
+  <!-- Fullscreen Cart Panel -->
+  <aside id="cart-panel" class="fixed top-0 right-0 h-full w-full sm:w-[450px] bg-white shadow-lg z-50 translate-x-full transition-transform duration-300 flex flex-col">
+    <div class="p-4 bg-adobo text-white flex justify-between items-center">
+      <h2 class="text-xl font-bold">Your Cart</h2>
+      <button id="cart-close" class="text-white text-2xl font-bold">×</button>
+    </div>
+
+    <div class="flex-1 p-4 overflow-y-auto">
+      <p class="text-gray-600 empty-cart-message">Your cart is empty!</p>
+      <ul id="cart-items" class="divide-y hidden"></ul>
+    </div>
+
+    <div class="p-4 border-t mt-auto">
+      <div class="flex justify-between text-lg font-bold mb-4 hidden" id="cart-total">
+        <span>Total:</span>
+        <span id="total-amount">₱0</span>
+      </div>
+      <button id="checkout-btn" class="btn w-full bg-adobo text-white hover:bg-lechon hidden">Checkout</button>
+    </div>
+  </aside>
+
+  <!-- Receipt Modal -->
+  <dialog id="receipt-modal" class="modal">
+    <div class="modal-box w-full max-w-md bg-white text-adobo font-poppins shadow-lg">
+      <div class="flex items-center justify-between bg-adobo px-5 py-4 text-white rounded-t-lg">
+        <h3 class="text-lg font-bold">Receipt</h3>
+        <form method="dialog">
+          <button class="btn btn-sm btn-circle text-white hover:bg-lechon">✕</button>
+        </form>
+      </div>
+      <div class="grow p-5 bg-white">
+        <ul class="divide-y divide-gray-200 mb-4 max-h-60 overflow-y-auto" id="receipt-items"></ul>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Fixed Bottom Navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-white shadow-lg border-t flex justify-around py-3 z-40">
+    <button class="text-adobo font-bold text-lg" id="nav-menu">🍽 Menu</button>
+    <button class="text-adobo font-bold text-lg" id="nav-cart">🛒 Cart</button>
+  </nav>
+
+  <!-- Add to Cart Notification -->
+  <div id="add-notification" class="fixed bottom-22 right-20 bg-green-600 text-white py-2 px-4 rounded shadow-lg hidden">
+    Item added to cart!
+  </div>
+
+  <script src="app.js"></script>
+
+  <script>
+    // Toggle cart
+    $('#cart-toggle, #nav-cart').on('click', function () {
+      $('#cart-panel').removeClass('translate-x-full');
+    });
+
+    $('#cart-close, #nav-menu').on('click', function () {
+      $('#cart-panel').addClass('translate-x-full');
+    });
+
+    // Category filter
+    $('.category-btn').on('click', function () {
+      const category = $(this).data('category');
+      $('.category-btn').removeClass('border-b-2').removeClass('border-adobo');
+      $(this).addClass('border-b-2 border-adobo');
+
+      $('.menu-item').each(function () {
+        const itemCat = $(this).data('category');
+        if (category === 'all' || itemCat === category) {
+          $(this).show();
+        } else {
+          $(this).hide();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
